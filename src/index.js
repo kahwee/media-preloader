@@ -1,2 +1,2 @@
-import dlImage from './util/download-image'
-dlImage('hi')
+import { default as Queue } from './queue'
+export default Queue

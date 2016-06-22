@@ -1,9 +1,11 @@
 {
   "name": "media-preloader",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "npm run build-lib && npm run browserify",
+    "build-lib": "babel src --out-dir lib",
     "browserify": "browserify src/index.js  --debug | exorcist dist/media-preloader.js.map > dist/media-preloader.js",
     "watchify": "watchify src/index.js  -o 'exorcist dist/media-preloader.js.map > dist/media-preloader.js' --debug",
     "test": "karma start",

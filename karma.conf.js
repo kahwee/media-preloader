@@ -8,7 +8,7 @@ module.exports = function (config) {
   const globTestFiles = 'test/**/*.js'
   let preprocessors = {}
   preprocessors[globTestFiles] = ['browserify']
-  config.set({
+  let configuration = {
     basePath: '.',
     frameworks: ['browserify', 'mocha', 'chai'],
     files: [globTestFiles].concat([
@@ -38,6 +38,20 @@ module.exports = function (config) {
     coverageReporter: [{
       type: 'html',
       dir: 'coverage/'
-    }]
-  })
+    }],
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    }
+  }
+
+  if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci']
+    configuration.autoWatch = false
+    configuration.singleRun = true
+  }
+
+  config.set(configuration)
 }

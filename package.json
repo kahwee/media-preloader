@@ -10,7 +10,8 @@
     "watchify": "watchify src/index.js  -o 'exorcist dist/media-preloader.js.map > dist/media-preloader.js' --debug",
     "test": "karma start",
     "lint": "standard src/**/*.js test/**/*.js",
-    "format": "standard-format -w src/**/*.js test/**/*.js"
+    "format": "standard-format -w src/**/*.js test/**/*.js",
+    "coverage-ci": "cat ./coverage/report-lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",

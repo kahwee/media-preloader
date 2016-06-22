@@ -35,10 +35,27 @@ module.exports = function (config) {
       }
     },
     logLevel: config.LOG_INFO,
-    coverageReporter: [{
-      type: 'html',
-      dir: 'coverage/'
-    }],
+    junitReporter: {
+      outputFile: '_karma.xml',
+      suite: ''
+    },
+    coverageReporter: {
+      dir: 'coverage',
+      reporters: [
+        { type: 'lcov',
+          subdir: 'report-lcov'
+        },
+        {
+          type: 'cobertura',
+          subdir: '.',
+          file: 'cobertura.xml'
+        }, {
+          absolutePath: true,
+          type: 'html',
+          subdir: '.'
+        }
+      ]
+    },
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',

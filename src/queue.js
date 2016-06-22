@@ -33,7 +33,7 @@ export default class Queue {
     const all = Promise.all(this.queue.map((item) => dlImage(item)))
     this.queue = []
     all.then((items) => {
-      this.items.concat(items)
+      this.items = this.items.concat(items)
     })
     return all
   }

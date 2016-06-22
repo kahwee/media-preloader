@@ -82,7 +82,7 @@ var Queue = function () {
       }));
       this.queue = [];
       all.then(function (items) {
-        _this2.items.concat(items);
+        _this2.items = _this2.items.concat(items);
       });
       return all;
     }

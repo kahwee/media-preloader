@@ -1,16 +1,15 @@
 {
   "name": "media-preloader",
-  "version": "0.2.0",
-  "description": "",
+  "version": "0.2.1",
+  "description": "Queue to load images",
   "main": "lib/index.js",
   "scripts": {
     "build": "npm run build-lib && npm run browserify",
     "build-lib": "babel src --out-dir lib",
-    "browserify": "browserify src/index.js  --debug | exorcist dist/media-preloader.js.map > dist/media-preloader.js",
+    "browserify": "browserify src/index.js --debug | exorcist dist/media-preloader.js.map > dist/media-preloader.js",
     "watchify": "watchify src/index.js  -o 'exorcist dist/media-preloader.js.map > dist/media-preloader.js' --debug",
     "test": "karma start",
-    "lint": "standard src/**/*.js test/**/*.js",
-    "format": "standard-format -w src/**/*.js test/**/*.js",
+    "lint": "standard",
     "coverage-ci": "cat ./coverage/report-lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
@@ -43,7 +42,6 @@
     "karma-mocha-reporter": "^2.0.3",
     "mocha": "^2.5.3",
     "standard": "^7.1.2",
-    "standard-format": "^2.2.1",
     "watchify": "^3.7.0"
   },
   "browserify": {
@@ -66,6 +64,19 @@
       "Image",
       "expect",
       "before"
+    ],
+    "ignore": [
+      "scripts/**",
+      "dist/**",
+      "build/**",
+      "coverage/**",
+      "lib/**"
     ]
-  }
+  },
+  "keywords": [
+    "img",
+    "queue",
+    "image",
+    "preload"
+  ]
 }

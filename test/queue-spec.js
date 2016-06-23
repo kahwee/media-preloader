@@ -21,6 +21,7 @@ describe('Queue', function () {
   describe('caching', function () {
     it('should retrieve a present key barack', function (done) {
       q.getByKey('barack', (err, media) => {
+        expect(err).to.be.null
         expect(media.uri).to.equal(URL)
         expect(media.asset.src).to.contain('barack.jpg')
         done()
@@ -34,5 +35,4 @@ describe('Queue', function () {
       })
     })
   })
-
 })

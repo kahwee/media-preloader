@@ -11,3 +11,6 @@ Media queuer to download a bunch of images at a go. Zero dependencies.
 
 ## Usage
 
+## License
+
+ISC

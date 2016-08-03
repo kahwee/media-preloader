@@ -1,4 +1,3 @@
-import { expect } from 'chai'
 import Queue from '../src/queue'
 let q
 const URL = './base/test/fixtures/barack.jpg'
@@ -8,13 +7,28 @@ describe('Queue', function () {
   })
 
   describe('addition', function () {
-    it('should addOne', function (done) {
+    it('should add one', function (done) {
       q.addOne({key: 'barack', uri: URL})
       q.process().then((values) => {
         expect(values.length).to.equal(1)
         expect(q.items.length).to.equal(1)
         done()
       })
+    })
+
+    it('should add one without a key', function () {
+      try {
+        expect(q.addOne({uri: URL})).to.throw(Error)
+      } catch (err) {
+        console.log(err)
+      }
+    })
+
+    it('should add multiple', function (done) {
+      q.add([{key: 'barack', uri: URL}])
+        .then((values) => {
+          done()
+        })
     })
   })
 

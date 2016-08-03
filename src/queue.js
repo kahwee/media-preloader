@@ -10,7 +10,7 @@ export default class Queue {
     items.forEach((item) => {
       this.addOne(item)
     }, this)
-    process()
+    return this.process()
   }
 
   /**

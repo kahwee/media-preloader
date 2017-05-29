@@ -1,5 +1,7 @@
 # media-preloader
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kahwee/media-preloader.svg)](https://greenkeeper.io/)
+
 Media queuer to download a bunch of images at a go. Zero dependencies.
 
 [![Build Status](https://travis-ci.org/kahwee/media-preloader.svg?branch=master)](https://travis-ci.org/kahwee/media-preloader)
